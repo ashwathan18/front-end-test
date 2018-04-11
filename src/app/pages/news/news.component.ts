@@ -11,6 +11,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
   }
+  //Keep all data, use *ngFor directive to render data.
   cardData = [
     {
       title: "Chain Store Age",

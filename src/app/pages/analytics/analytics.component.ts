@@ -153,7 +153,7 @@ export class AnalyticsComponent implements OnInit {
   }
   changeDataSet(){
     setInterval(()=>{
-      this.baseTimeStamp += 60000;
+      this.baseTimeStamp += 30000;
       var d = this.getHoursForTimeStamp(this.baseTimeStamp);
       this.config.data.labels.push(d.getHours() + ":" + d.getMinutes());
       this.config.data.labels.splice(0,1);
@@ -172,7 +172,7 @@ export class AnalyticsComponent implements OnInit {
         data.data[0] = 10 * Math.random();
       });
       this.barChart.update();
-    }, 60000);
+    }, 30000);
   }
 
   getHoursForTimeStamp(timestamp){

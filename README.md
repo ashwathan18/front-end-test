@@ -7,7 +7,7 @@
     Allowed navigation:
          > Anaytics 
          > News.
-    Analytics graphs gets updated every 60 seconds.
+    Analytics graphs gets updated every 30 seconds.
 
 ## FrontendTestRokk3rlabs
 
