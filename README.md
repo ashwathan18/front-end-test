@@ -5,7 +5,7 @@
 3. Run `ng serve --open` to run on dev server opens in default browser. If it doesnot open browser window, open browser and navigate to `http://localhost:4200/`.
 ## Note:
     Allowed navigation:
-         > Anaytics 
+         > Anaytics: Includes Line chart, bar chart, donought chart.
          > News.
     Analytics graphs gets updated every 30 seconds.
 

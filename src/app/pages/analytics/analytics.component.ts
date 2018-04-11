@@ -17,19 +17,19 @@ export class AnalyticsComponent implements OnInit {
    dataSpeedSets = [];
    dataCountSets = [];
    labels = [];
-   pieLabels = [];
-   pieColors = [];
-   pieData = [];
-   pieConfig = {
+   doughnutLabels = [];
+   doughnutColors = [];
+   doughnutData = [];
+   doughnutConfig = {
     type: 'doughnut',
 
     data: {
       datasets: [{
-        data: this.pieData,
-        backgroundColor: this.pieColors,
+        data: this.doughnutData,
+        backgroundColor: this.doughnutColors,
         label: 'Dataset 1'
       }],
-      labels: this.pieLabels
+      labels: this.doughnutLabels
     },
     options: {
       responsive: true,
@@ -117,9 +117,9 @@ export class AnalyticsComponent implements OnInit {
         borderWidth:1,
         data: [data.data.count]
       });
-      this.pieData.push(data.data.speed);
-      this.pieLabels.push(data.zoneId);
-      this.pieColors.push(this.getRandomColor());
+      this.doughnutData.push(data.data.speed);
+      this.doughnutLabels.push(data.zoneId);
+      this.doughnutColors.push(this.getRandomColor());
       this.baseTimeStamp = data.data.time;
       var d = this.getHoursForTimeStamp(this.baseTimeStamp);
       this.labels.push(d.getHours() + ":" + d.getMinutes());
@@ -147,7 +147,7 @@ export class AnalyticsComponent implements OnInit {
 
 
     var ctx3 = (<HTMLCanvasElement>document.getElementById('piecanvas')).getContext('2d');//donought chart
-    this.doughnutChart = new Chart(ctx3, this.pieConfig);
+    this.doughnutChart = new Chart(ctx3, this.doughnutConfig);
 
     this.changeDataSet();// Start the interval 
   }
@@ -163,7 +163,7 @@ export class AnalyticsComponent implements OnInit {
         if(dataset.data.length > 5){
           dataset.data.splice(0,1);
         }
-        this.pieData[i] = (this.pieData[i] + speed) / 2; //Calculate average
+        this.doughnutData[i] = (this.doughnutData[i] + speed) / 2; //Calculate average
       });
 
       this.lineChart.update();
