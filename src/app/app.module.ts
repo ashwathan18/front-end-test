@@ -12,6 +12,7 @@ import { AnalyticsDataService } from './providers/analytics-data.service';
 const routes: Routes = [
   { path: 'analytics', component: AnalyticsComponent },
   { path: 'news', component: NewsComponent },
+  { path: '', redirectTo: 'analytics', pathMatch: 'full' },
 ];
 
 @NgModule({

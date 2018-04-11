@@ -8,9 +8,9 @@ import { AnalyticsDataService } from '../../providers/analytics-data.service';
   styleUrls: ['./analytics.component.scss']
 })
 export class AnalyticsComponent implements OnInit {
-   chart;
-   chart2;
-   chart3;
+   lineChart;
+   barChart;
+   doughnutChart;
 
    analyticsData;
    baseTimeStamp;
@@ -125,7 +125,7 @@ export class AnalyticsComponent implements OnInit {
       this.labels.push(d.getHours() + ":" + d.getMinutes());
     });
     var ctx = (<HTMLCanvasElement>document.getElementById('canvas')).getContext('2d');
-    this.chart = new Chart(ctx, this.config);
+    this.lineChart = new Chart(ctx, this.config); //Line chart
     
     var ctx2 = (<HTMLCanvasElement>document.getElementById('barcanvas')).getContext('2d');
     var a = {
@@ -142,12 +142,12 @@ export class AnalyticsComponent implements OnInit {
         }
       }
     };
-    this.chart2 = new Chart(ctx2, a);
-    this.chart2.update();
+    this.barChart = new Chart(ctx2, a); //barchart
+    this.barChart.update();
 
 
-    var ctx3 = (<HTMLCanvasElement>document.getElementById('piecanvas')).getContext('2d');
-    this.chart3 = new Chart(ctx3, this.pieConfig);
+    var ctx3 = (<HTMLCanvasElement>document.getElementById('piecanvas')).getContext('2d');//donought chart
+    this.doughnutChart = new Chart(ctx3, this.pieConfig);
 
     this.changeDataSet();// Start the interval 
   }
@@ -163,16 +163,16 @@ export class AnalyticsComponent implements OnInit {
         if(dataset.data.length > 5){
           dataset.data.splice(0,1);
         }
-        this.pieData[i] = (this.pieData[i] + speed) / 2;
+        this.pieData[i] = (this.pieData[i] + speed) / 2; //Calculate average
       });
 
-      this.chart.update();
-      this.chart3.update();
+      this.lineChart.update();
+      this.doughnutChart.update();
       this.dataCountSets.forEach(data=>{
         data.data[0] = 10 * Math.random();
       });
-      this.chart2.update();
-    }, 6000);
+      this.barChart.update();
+    }, 60000);
   }
 
   getHoursForTimeStamp(timestamp){
