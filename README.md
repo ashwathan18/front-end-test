@@ -1,4 +1,4 @@
-# Frontend Test prooject with Angular
+# Frontend Test project with Angular
 ## Setup:
 1. First Run `npm install`
 2. If angular cli is not installed run `npm install -g @angular/cli`
