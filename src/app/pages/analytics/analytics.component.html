@@ -1,0 +1,22 @@
+<div class="chart-main-container">
+    <div id="chartcontainer" >
+      <div style="display: inline-block; width: 60%; height: 15%;"  >
+          <canvas id="canvas" style="display: inline-block;"></canvas>
+      </div>
+      <div style="display: inline-block;">
+        <div *ngFor="let data of dataSpeedSets">
+            <label >
+                <input id="checkBox" type="checkbox">
+                <span [style.color]="data.borderColor">{{ data.label }}</span>
+            </label>
+        </div>
+      </div>
+    </div>
+    <div id="chartcontainer" style="width: 40%; height: 20%; display: inline-block;">
+      <canvas id="barcanvas"></canvas>
+    </div>
+    <div id="chartcontainer" style="width: 40%; height: 20%; display: inline-block;">
+      <canvas id="piecanvas"></canvas>
+    </div>
+  </div>
+  
