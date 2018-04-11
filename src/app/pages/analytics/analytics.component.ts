@@ -172,7 +172,7 @@ export class AnalyticsComponent implements OnInit {
         data.data[0] = 10 * Math.random();
       });
       this.chart2.update();
-    }, 1000);
+    }, 6000);
   }
 
   getHoursForTimeStamp(timestamp){
